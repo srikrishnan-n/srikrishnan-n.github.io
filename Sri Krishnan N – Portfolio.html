@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sri Krishnan N – PCB Library Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--page:#f4f6fa;--ink:#0f1b2d;--muted:#55627a;--line:#d6dce8;--card:#ffffff;--mask:#123a73;--mask2:#08162f;--copper:#e2b64d;--accent:#2f7bf6;--silk:#f5f7fb;--link:#1b5fd1;--bar:#f4f6faf0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#0a1424;--ink:#e8eefa;--muted:#9fb0cc;--line:#1f2f4d;--card:#10203a;--link:#7db2ff;--bar:#0a1424f0}}
+:root[data-theme="dark"]{--page:#0a1424;--ink:#e8eefa;--muted:#9fb0cc;--line:#1f2f4d;--card:#10203a;--link:#7db2ff;--bar:#0a1424f0}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:400 17px/1.65 "IBM Plex Sans",system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bar);z-index:10}
+a{color:var(--link)}
+:focus-visible{outline:3px solid var(--copper);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bar);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+.top strong{font:800 18px "Bricolage Grotesque",sans-serif}
+nav{display:flex;gap:18px;font-size:15px;flex-wrap:wrap}
+nav a{color:var(--ink);text-decoration:none}
+nav a:hover{text-decoration:underline}
+.band{background:radial-gradient(circle at 78% 40%,#1f4f9c 0,transparent 60%),radial-gradient(rgba(255,255,255,.09) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(160deg,var(--mask),var(--mask2));color:var(--silk)}
+.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center;padding:56px 0 64px}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #4a74b8;border-radius:99px;padding:5px 14px;font-size:15px;color:#d6e3f7;margin-bottom:20px}
+.badge i{width:9px;height:9px;border-radius:50%;background:#6fe3a8;display:inline-block}
+h1{font:800 clamp(38px,6.2vw,66px)/1.02 "Bricolage Grotesque",sans-serif;margin:0 0 20px;letter-spacing:-.025em}
+.lead{font-size:19px;color:#c5d3ea;max-width:32em;margin:0 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:7px;font-weight:500;text-decoration:none;border:2px solid var(--silk);color:var(--silk)}
+.btn.main{background:#fff;border-color:#fff;color:#08162f}
+.btn:hover{filter:brightness(1.1)}
+.board{margin:0}
+.board svg{width:100%;height:auto;display:block;background:#0b2650;border-radius:12px;border:1px solid #2c5aa0;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.ctrl{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.ctrl button,.tabs button{font:500 14px "IBM Plex Sans",sans-serif;background:transparent;color:var(--silk);border:1px solid #5b86c6;border-radius:99px;padding:6px 14px;cursor:pointer}
+.ctrl button[aria-pressed="true"],.tabs button[aria-pressed="true"]{background:var(--silk);color:#08162f;border-color:var(--silk)}
+.read{color:#d6e3f7;font-size:15px;margin-top:10px;min-height:1.6em}
+.pad{fill:var(--copper);outline-offset:2px;cursor:pointer;transition:fill .15s}
+.pad:hover,.pad:focus{fill:#fff3c4}
+.pad.on{animation:glow 1.3s ease-out both}
+@keyframes glow{0%{fill:#fff3c4}100%{fill:var(--copper)}}
+@media (prefers-reduced-motion:reduce){.pad.on{animation:none}html{scroll-behavior:auto}}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border:1px solid var(--line);border-radius:10px;background:var(--card);margin:-32px 0 8px;position:relative;box-shadow:0 12px 32px rgba(15,27,45,.14)}
+.facts div{padding:18px 20px;border-right:1px solid var(--line)}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font:700 15px "Bricolage Grotesque",sans-serif}
+.facts span{color:var(--muted);font-size:15px}
+section{display:grid;grid-template-columns:210px 1fr;gap:30px;padding:46px 0;border-top:1px solid var(--line)}
+section.first{border-top:0}
+h2{font:800 26px/1.2 "Bricolage Grotesque",sans-serif;margin:0;letter-spacing:-.01em}
+h3{font:700 19px/1.3 "Bricolage Grotesque",sans-serif;margin:0 0 4px}
+p{margin:0 0 14px;max-width:44em}
+.when{color:var(--muted);font-size:15px;margin-bottom:12px}
+ul{margin:0;padding-left:20px;max-width:46em}
+li{margin-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;border-top:4px solid var(--accent)}
+.box h3{font-size:17px}
+.box p{font-size:15px;margin:0;color:var(--muted)}
+.steps{list-style:none;padding:0;max-width:none;counter-reset:s;display:grid;gap:12px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.steps li::before{content:counter(s);width:34px;height:34px;border-radius:50%;background:var(--mask);color:var(--copper);display:grid;place-items:center;font:700 16px "Bricolage Grotesque",sans-serif}
+.steps b{display:block;font-family:"Bricolage Grotesque",sans-serif}
+.steps span{color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;max-width:none}
+.tags li{margin:0;border:1px solid var(--line);background:var(--card);padding:4px 13px;border-radius:99px;font-size:15px}
+.tags.t li{border-color:var(--accent)}
+footer{background:var(--mask2);color:#b4c3dc;padding:34px 0 44px;font-size:15px;margin-top:20px}
+footer a{color:var(--silk)}
+.str{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;padding:40px 0 10px}
+.str div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.str b{display:block;font:700 18px "Bricolage Grotesque",sans-serif;margin-bottom:6px;color:var(--link)}
+.str span{color:var(--muted);font-size:15px}
+@media (max-width:800px){.hero{grid-template-columns:1fr;padding:36px 0 56px}section{grid-template-columns:1fr;gap:14px}.facts div{border-right:0;border-bottom:1px solid var(--line)}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><strong>Sri Krishnan N</strong>
+<nav aria-label="Sections"><a href="#process">How I work</a><a href="#work">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#learning">AI &amp; learning</a><a href="#contact">Contact</a></nav></div></div>
+
+<main>
+<div class="band"><div class="wrap hero">
+  <div>
+    <div class="badge"><i></i>Open to ECAD and PCB roles</div>
+    <h1>Libraries that board designers never have to second-guess.</h1>
+    <p class="lead">I’m a PCB Library Engineer and ECAD Librarian. I turn datasheets and package drawings into verified symbols, land patterns and mechanical models for Altium Designer, Cadence Allegro, PADS and OrCAD.</p>
+    <div class="btns"><a class="btn main" href="mailto:srikrishnan509@gmail.com">Email me</a><a class="btn" href="https://www.linkedin.com/in/krish23/">View LinkedIn</a></div>
+  </div>
+  <figure class="board">
+    <div class="tabs" id="tabs" role="group" aria-label="Package type"></div>
+    <svg id="fp" viewBox="0 0 400 400" role="img" aria-label="Interactive land pattern drawings of common electronic packages"></svg>
+    <div class="ctrl" role="group" aria-label="Footprint layers">
+      <button aria-pressed="true" data-l="silk">Silkscreen</button>
+      <button aria-pressed="true" data-l="asm">Assembly outline</button>
+      <button aria-pressed="true" data-l="court">Courtyard</button>
+    </div>
+    <div class="read" id="read" aria-live="polite">Hover or tap a pad to read its pin number. Toggle the layers above.</div>
+  </figure>
+</div></div>
+
+<div class="wrap">
+<div class="facts">
+  <div><b>Role</b><span>PCB Library Engineer, ECAD Librarian</span></div>
+  <div><b>Tools</b><span>Altium, Allegro, PADS, OrCAD, AutoCAD</span></div>
+  <div><b>Based in</b><span>Tamil Nadu, India</span></div>
+  <div><b>Degree</b><span>B.E. Electronics &amp; Communication</span></div>
+</div>
+
+<div class="str">
+  <div><b>Accuracy first</b><span>Dimension verification, pin-mapping validation and library QA/QC that cut design rework.</span></div>
+  <div><b>Multi-tool fluency</b><span>Altium, Allegro, PADS and OrCAD parts built to one standard.</span></div>
+  <div><b>Delivered on schedule</b><span>Library parts released on time for PCB design and ATE board teams.</span></div>
+</div>
+
+<section id="process" class="first">
+  <h2>From datasheet to released part</h2>
+  <ol class="steps">
+    <li><div><b>Read the source</b><span>Datasheet, package drawing and pin configuration, checked against engineering requirements.</span></div></li>
+    <li><div><b>Build the symbol</b><span>Schematic symbol with validated pin mapping.</span></div></li>
+    <li><div><b>Draw the footprint</b><span>Pad stack, land pattern, courtyard, silkscreen and assembly outline, ready for manufacturing.</span></div></li>
+    <li><div><b>Verify</b><span>Dimension verification and library QA/QC before anything reaches a design team.</span></div></li>
+    <li><div><b>Release and maintain</b><span>Naming conventions and documentation standards, with updates after engineering changes.</span></div></li>
+  </ol>
+</section>
+
+<section id="work">
+  <h2>Experience</h2>
+  <div>
+    <h3>PCB Library Engineer, DWB Tech Solution</h3>
+    <div class="when">Coimbatore, Tamil Nadu · June 2025 to present</div>
+    <ul>
+      <li>Maintain a standard ECAD library of schematic symbols, PCB footprints, land patterns and mechanical symbols.</li>
+      <li>Create custom parts across Altium Designer, Cadence Allegro and PADS for multi-tool design environments.</li>
+      <li>Run dimension checks and library quality reviews that improve consistency and reduce design rework.</li>
+      <li>Prepare and release BOMs with accurate part numbers, manufacturers, footprints and quantities, and coordinate procurement with project timelines.</li>
+      <li>Deliver library components on schedule for PCB design teams and ATE board development.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="box"><h3>PCB component library</h3><p>Custom libraries and footprints built from datasheets and mechanical specifications, with reusable parts verified for dimensions, pin configuration and land pattern in Altium, Allegro and PADS.</p></div>
+    <div class="box"><h3>ATE board library support</h3><p>Symbols and footprints created and maintained to board-design requirements, supporting a standard library across PCB design activities.</p></div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div>
+    <h3>Tools</h3>
+    <ul class="tags t"><li>Altium Designer</li><li>Cadence Allegro</li><li>PADS Layout / Logic</li><li>OrCAD Capture</li><li>AutoCAD</li></ul>
+    <h3 style="margin-top:20px">ECAD library</h3>
+    <ul class="tags"><li>Schematic symbols</li><li>PCB footprints</li><li>Land patterns</li><li>Pad stacks</li><li>Mechanical symbols</li><li>Library QA / QC</li><li>Naming conventions</li></ul>
+    <h3 style="margin-top:20px">Component engineering</h3>
+    <ul class="tags"><li>Datasheet interpretation</li><li>Pin mapping</li><li>Dimensional verification</li><li>BOM preparation</li><li>Procurement</li><li>DFM awareness</li><li>ATE board support</li></ul>
+  </div>
+</section>
+
+<section id="learning">
+  <h2>AI and learning</h2>
+  <div>
+    <p>My technical base covers embedded systems, IoT, Python, React Native and data analytics. I’ve completed AI &amp; Machine Learning Fundamentals and Prompt Engineering courses, and I’m applying them to make library checks and part research faster.</p>
+    <ul class="tags t"><li>CAPM, PMI</li><li>Embedded Systems &amp; IoT, NPTEL</li><li>AI &amp; ML Fundamentals, Simplilearn</li><li>Prompt Engineering, Simplilearn / Doie India</li><li>React Native, Coursera</li><li>Microsoft Excel</li><li>AI &amp; IoT in Smart Cities workshop</li></ul>
+    <h3 style="margin-top:22px">B.E. Electronics and Communication Engineering</h3>
+    <div class="when">Karpagam Institute of Technology, Coimbatore · 2021 to 2025 · CGPA 7.3</div>
+    <p>Six-month internship at Tessolve, one of a few students selected, with hands-on Tinkercad training.</p>
+  </div>
+</section>
+</div>
+</main>
+
+<footer id="contact"><div class="wrap">
+  <h2 style="color:var(--silk);margin-bottom:10px">Let’s talk</h2>
+  <p>Open to ECAD Librarian, PCB Library, PCB Design and Hardware Design roles in India and abroad.</p>
+  <p><a href="mailto:srikrishnan509@gmail.com">srikrishnan509@gmail.com</a> · <a href="https://www.linkedin.com/in/krish23/">linkedin.com/in/krish23</a></p>
+</div></footer>
+
+<script>
+(function(){
+  var s=document.getElementById('fp'),r=document.getElementById('read'),tb=document.getElementById('tabs');
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vis={silk:true,asm:true,court:true};
+  var SK='fill="none" stroke="#f5f7fb" stroke-width="2.5"';
+  var DOT=function(x,y){return '<circle cx="'+x+'" cy="'+y+'" r="6" fill="#f5f7fb"/>';};
+  function R(x,y,w,h,l){return {t:'r',x:x,y:y,w:w,h:h,l:l};}
+  function C(x,y,r,l){return {t:'c',x:x,y:y,r:r,l:l};}
+  var P={},i,j,c,a,n;
+  a=[];n=1;
+  for(i=0;i<8;i++){a.push(R(123+i*20,64,14,30,'Pin '+(n++)));}
+  for(i=0;i<8;i++){a.push(R(306,123+i*20,30,14,'Pin '+(n++)));}
+  for(i=7;i>=0;i--){a.push(R(123+i*20,306,14,30,'Pin '+(n++)));}
+  for(i=7;i>=0;i--){a.push(R(64,123+i*20,30,14,'Pin '+(n++)));}
+  a.push(R(160,160,80,80,'Exposed thermal pad'));
+  P.qfn={n:'QFN-32',court:[56,56,288,288],asm:[98,98,204,204],silk:'<path d="M110 110H290V290H110Z" '+SK+'/>'+DOT(124,124),pads:a,d:'QFN-32 land pattern'};
+  a=[];
+  for(i=0;i<4;i++){a.push(R(92,122+i*40,40,16,'Pin '+(i+1)));a.push(R(268,122+i*40,40,16,'Pin '+(8-i)));}
+  P.soic={n:'SOIC-8',court:[80,90,240,205],asm:[140,105,120,175],silk:'<path d="M150 110H250M150 275H250" '+SK+'/>'+DOT(162,128),pads:a,d:'SOIC-8 land pattern'};
+  P.sot23={n:'SOT-23 MOSFET',court:[112,84,176,232],asm:[135,150,130,100],silk:'<path d="M135 160V240M265 160V240" '+SK+'/>'+DOT(150,234),pads:[R(128,250,40,52,'Pin 1 · Gate'),R(232,250,40,52,'Pin 2 · Source'),R(180,98,40,52,'Pin 3 · Drain')],d:'SOT-23 MOSFET land pattern'};
+  P.dpak={n:'DPAK MOSFET',court:[104,76,192,248],asm:[118,100,164,136],silk:'<path d="M112 208V232H288V208" '+SK+'/>'+DOT(162,222),pads:[R(130,88,140,112,'Tab · Drain'),R(144,236,36,64,'Pin 1 · Gate'),R(220,236,36,64,'Pin 3 · Source')],d:'DPAK (TO-252) MOSFET land pattern'};
+  P.chip={n:'0603 chip',court:[112,150,176,100],asm:[160,184,80,32],silk:'<path d="M160 160H240M160 240H240" '+SK+'/>',pads:[R(128,168,64,64,'Pad 1'),R(208,168,64,64,'Pad 2')],d:'0603 chip resistor or capacitor land pattern'};
+  a=[];
+  for(i=0;i<6;i++){for(j=0;j<6;j++){a.push(C(100+j*40,100+i*40,10,'Ball '+'ABCDEF'.charAt(i)+(j+1)));}}
+  P.bga={n:'BGA-36',court:[70,70,260,260],asm:[82,82,236,236],silk:'<path d="M82 82H318V318H82Z" '+SK+'/><path d="M82 82H98L82 98Z" fill="#f5f7fb"/>',pads:a,d:'BGA-36 land pattern'};
+
+  function g(id,body){return '<g id="'+id+'"'+(vis[id]?'':' style="display:none"')+'>'+body+'</g>';}
+  function draw(k){
+    var p=P[k],h='',q;
+    q=p.court;h+=g('court','<rect x="'+q[0]+'" y="'+q[1]+'" width="'+q[2]+'" height="'+q[3]+'" fill="none" stroke="#6fb1ff" stroke-width="1.5" stroke-dasharray="6 5"/>');
+    q=p.asm;h+=g('asm','<rect x="'+q[0]+'" y="'+q[1]+'" width="'+q[2]+'" height="'+q[3]+'" fill="none" stroke="#9fb0cc" stroke-width="1.5"/>');
+    h+=g('silk',p.silk);
+    p.pads.forEach(function(d){
+      h+=d.t==='r'?'<rect class="pad" tabindex="0" x="'+d.x+'" y="'+d.y+'" width="'+d.w+'" height="'+d.h+'" rx="2" data-p="'+d.l+'"/>'
+                  :'<circle class="pad" tabindex="0" cx="'+d.x+'" cy="'+d.y+'" r="'+d.r+'" data-p="'+d.l+'"/>';
+    });
+    s.innerHTML=h;
+    r.textContent=p.d+' (illustrative). Hover or tap a pad to see its pin.';
+    s.querySelectorAll('.pad').forEach(function(el,m){
+      var say=function(){r.textContent=p.n+' · '+el.getAttribute('data-p');};
+      el.addEventListener('mouseenter',say);el.addEventListener('focus',say);el.addEventListener('click',say);
+      if(!rm){el.style.animationDelay=Math.min(m*22,600)+'ms';el.classList.add('on');}
+    });
+  }
+  Object.keys(P).forEach(function(k,m){
+    var b=document.createElement('button');b.textContent=P[k].n;b.setAttribute('aria-pressed',m===0);b.setAttribute('data-k',k);
+    b.addEventListener('click',function(){
+      tb.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b);});
+      draw(k);
+    });
+    tb.appendChild(b);
+  });
+  document.querySelectorAll('.ctrl button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var l=b.getAttribute('data-l'),on=b.getAttribute('aria-pressed')!=='true';
+      b.setAttribute('aria-pressed',on);vis[l]=on;
+      var el=s.querySelector('#'+l);if(el){el.style.display=on?'':'none';}
+    });
+  });
+  draw('qfn');
+})();
+</script>
+</body>
+</html>
